@@ -12,12 +12,23 @@
     <h1 style="background: color(srgb rgb(41, 82, 129) green blue);">Welcome to our  Quotes Page</h1>
     <blockquote>
     <p>Cours de BigData.</p>
-    <!-- make a box where written content will be sent to python using a viariable. redirect to home using query variable and get methode -->
-    <form action="/home?query=" method="get">
-        <label for="quote">Enter your query</label>
-        <input type="text" name="query" id="query">
+    <!-- Afficher les documents dont trackName commence par la lettre sélectionnée -->
+    <form action="/get-result-from-lettre?lettre=" method="get">
+        <label for="letters">Select a letter:</label>
+        <select name="lettre" id="lettre">
+            {% for letter in 'ABCDEFGHIJKLMNOPQRSTUVWXYZ' %}
+            <option value="{{ letter }}">{{ letter }}</option>
+            {% endfor %}
+        </select>
         <input type="submit" value="Submit">
     </form>
+
+
+    <!-- Autre recherche -->
+
+
+
+    <!-- Affichage du résultat -->
     <p> {{ result|safe }} </p>
 </blockquote>
 </body>
