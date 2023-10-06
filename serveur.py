@@ -29,6 +29,7 @@ def get_result_from_lettre():
 
 
 
+
 @app.route('/', methods=['GET'])
 def index():
     return render_template('index.html')
