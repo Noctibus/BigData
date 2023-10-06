@@ -1,6 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <script type="text/javascript">
+        var result = {{ result|safe }};
+    </script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Home</title>
@@ -9,7 +12,25 @@
     <h1 style="background: color(srgb rgb(41, 82, 129) green blue);">Welcome to our  Quotes Page</h1>
     <blockquote>
     <p>Cours de BigData.</p>
-    <cite>JUSTIN BIEBER</cite>
+    <!-- Afficher les documents dont trackName commence par la lettre sélectionnée -->
+    <form action="/get-result-from-lettre?lettre=" method="get">
+        <label for="letters">Select a letter:</label>
+        <select name="lettre" id="lettre">
+            {% for letter in 'ABCDEFGHIJKLMNOPQRSTUVWXYZ' %}
+            <option value="{{ letter }}">{{ letter }}</option>
+            {% endfor %}
+        </select>
+        <input type="submit" value="Submit">
+    </form>
+
+
+    <!-- Autre recherche -->
+
+
+    
+
+    <!-- Affichage du résultat -->
+    <p> {{ result|safe }} </p>
 </blockquote>
 </body>
 </html>
