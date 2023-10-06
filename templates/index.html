@@ -1,67 +1,68 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <script type="text/javascript">
-        var result = {{ result|safe }};
-    </script>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="../static/style.css">
-    <title>Home</title>
-</head>
-<body>
-    <h1>Welcome to our  Quotes Page</h1>
-    <blockquote>
-    <p>Cours de BigData.</p>
-    <!-- Afficher les documents dont trackName commence par la lettre sélectionnée -->
-    <form action="/get-result-from-lettre" method="get">
-        <label for="letters">Select a letter:</label>
-        <select name="lettre" id="lettre">
-            {% for letter in 'ABCDEFGHIJKLMNOPQRSTUVWXYZ' %}
-            <option value="{{ letter }}">{{ letter }}</option>
-            {% endfor %}
-        </select>
-        <input type="submit" value="Submit">
-    </form>
+    <head>
+        <!-- add icon -->
+        <link rel="icon" href="../static/music.png" type="image/x-icon">
+        <title>Spoutify</title>
+        <link rel="stylesheet" type="text/css" href="../static/style.css">
+        <!-- Google Fonts Link For Icons -->
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+
+        <script type="text/javascript">
+            var result = {{ result|safe }};
+        </script>
+    </head>
+    <body>
+        <!-- make h1 title go to home page if clicked and remove underline-->
+        <h1><a href="/" style="text-decoration: none; color: black;">Welcome to Spoutify !</a></h1>
+        <!-- Afficher les documents dont trackName commence par la lettre sélectionnée -->
+        <form action="/get-result-from-lettre" method="get">
+            <label for="letters">Select the first letter:</label>
+            <select name="lettre" id="lettre">
+                {% for letter in 'ABCDEFGHIJKLMNOPQRSTUVWXYZ' %}
+                <option value="{{ letter }}">{{ letter }}</option>
+                {% endfor %}
+            </select>
+            <input type="submit" value="Submit">
+        </form>
 
 
-    <!-- Recherche par genre -->
-    <form action="/get-result-from-genre?" method="get">
-        <label for="type">Choose a genre:</label>  
-            <input name="genre" value="{{ genre }}">{{genre}}</input>
-        <input type="submit" value="Submit">
-    </form>
+        <!-- Recherche par genre -->
+        <form action="/get-result-from-genre?" method="get">
+            <label for="type">Choose a genre:</label>  
+                <input name="genre" value="{{ genre }}">{{genre}}</input>
+            <input type="submit" value="Submit">
+        </form>
 
-  
-    <!-- Tri par tag ascendant ou descendant -->
-    <form action="/get-result-sorted?sorting=?order=" method="get">
-        <label for="sorting"> Sort by: </label>
-        <select name="sorting" id="sorting-form">
-            <option value="tempo">tempo</option>
-            <option value="msPlayed">ms played</option>
-            <option value="danceability">danceability</option>
-            <option value="energy">energy</option>
-            <option value="loudness">loudness</option>
-            <option value="mode">mode</option>
-            <option value="speechness">speechness</option>
-            <option value="acousticness">acousticness</option>
-            <option value="instrumentalness">instrumentalness</option>
-            <option value="liveness">liveness</option>
-            <option value="valence">valence</option>
-            <option value="duration_ms">duration</option>
-            <option value="time_signature">time signature</option>
-            <option value="key">key</option>
-        </select>
-        <select name="order" id="sorting-order">
-            <option value="Ascending">Ascending</option>
-            <option value="Descending">Descending</option>
-        </select>
-        <input type="submit" value="Submit">
-    </form>
-    
 
-    <!-- Affichage du résultat -->
-    <p> {{ result|safe }} </p>
-</blockquote>
-</body>
+        <!-- Tri par tag ascendant ou descendant -->
+        <form action="/get-result-sorted?sorting=?order=" method="get">
+            <label for="sorting"> Sort by: </label>
+            <select name="sorting" id="sorting-form">
+                <option value="tempo">tempo</option>
+                <option value="msPlayed">ms played</option>
+                <option value="danceability">danceability</option>
+                <option value="energy">energy</option>
+                <option value="loudness">loudness</option>
+                <option value="mode">mode</option>
+                <option value="speechness">speechness</option>
+                <option value="acousticness">acousticness</option>
+                <option value="instrumentalness">instrumentalness</option>
+                <option value="liveness">liveness</option>
+                <option value="valence">valence</option>
+                <option value="duration_ms">duration</option>
+                <option value="time_signature">time signature</option>
+                <option value="key">key</option>
+            </select>
+            <select name="order" id="sorting-order">
+                <option value="Ascending">Ascending</option>
+                <option value="Descending">Descending</option>
+            </select>
+            <input type="submit" value="Submit">
+        </form>
+
+
+        <!-- Affichage du résultat -->
+        <p> {{ result|safe }} </p>
+    </body>
 </html>
