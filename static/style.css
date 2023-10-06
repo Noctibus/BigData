@@ -1,0 +1,11 @@
+/* Style pour le corps de la page */
+body {
+    background-color: #34c924; /* Définit la couleur de fond en vert */
+  }
+  
+  /* Style pour le titre h1 */
+  h1 {
+    font-size: 24px; /* Ajustez la taille de la police selon vos préférences */
+    text-align: center; /* Centre le texte horizontalement */
+  }
+  
