@@ -26,6 +26,17 @@ def get_result_from_lettre():
     return render_template('index.html', result=data)
 
 
+@app.route('/get-result-sorted', methods=['GET'])
+def get_result_sorted():
+    sort_required = request.args.get('sorting')
+    sort_order = request.args.get('order')
+    projection = {'trackName': 1, 'artistName': 1, '_id':0}
+    if sort_order == "Ascending":
+        result = collection.find(projection=projection).sort(sort_required, direction=pymongo.ASCENDING)
+    else :
+        result = collection.find(projection=projection).sort(sort_required, direction=pymongo.DESCENDING)
+    data = [r for r in result]
+    return render_template('index.html', result=data)
 
 
 
