@@ -13,11 +13,14 @@ def connect_mongo_db():
     collection = db['spotifyCollection']
     return collection
 
-def render_result(data):
+
+def render_result(result):
+    data = [r for r in result]
     df = pd.DataFrame(data)
     df.columns = ['trackName', 'artistName']
     html_table = df.to_html()
     return render_template('index.html', result=html_table)
+
 
 @app.route('/get-result-from-lettre', methods=['GET'])
 def get_result_from_lettre():
@@ -25,8 +28,7 @@ def get_result_from_lettre():
     query = {'trackName': {'$regex': '^' + lettre}}
     projection = {'trackName': 1, 'artistName': 1, '_id': 0}
     result = collection.find(query, projection)
-    data = [r for r in result]
-    return render_result(data)
+    return render_result(result)
 
 
 @app.route('/get-result-sorted', methods=['GET'])
@@ -38,8 +40,7 @@ def get_result_sorted():
         result = collection.find(projection=projection).sort(sort_required, direction=pymongo.ASCENDING)
     else :
         result = collection.find(projection=projection).sort(sort_required, direction=pymongo.DESCENDING)
-    data = [r for r in result]
-    return render_template('index.html', result=data)
+    return render_result(result)
 
 
 
