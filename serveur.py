@@ -1,8 +1,7 @@
 from flask import Flask, render_template, request, redirect, url_for, flash, session
 import pymongo
 from pymongo import MongoClient
-import json
-from time import time
+import pandas as pd
 
 
 app = Flask(__name__)
@@ -14,7 +13,11 @@ def connect_mongo_db():
     collection = db['spotifyCollection']
     return collection
 
-
+def render_result(data):
+    df = pd.DataFrame(data)
+    df.columns = ['trackName', 'artistName']
+    html_table = df.to_html()
+    return render_template('index.html', result=html_table)
 
 @app.route('/get-result-from-lettre', methods=['GET'])
 def get_result_from_lettre():
@@ -23,7 +26,7 @@ def get_result_from_lettre():
     projection = {'trackName': 1, 'artistName': 1, '_id': 0}
     result = collection.find(query, projection)
     data = [r for r in result]
-    return render_template('index.html', result=data)
+    return render_result(data)
 
 
 
