@@ -1,6 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <script type="text/javascript">
+        var result = {{ result|safe }};
+    </script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Home</title>
@@ -9,7 +12,13 @@
     <h1 style="background: color(srgb rgb(41, 82, 129) green blue);">Welcome to our  Quotes Page</h1>
     <blockquote>
     <p>Cours de BigData.</p>
-    <cite>JUSTIN BIEBER</cite>
+    <!-- make a box where written content will be sent to python using a viariable. redirect to home using query variable and get methode -->
+    <form action="/home?query=" method="get">
+        <label for="quote">Enter your query</label>
+        <input type="text" name="query" id="query">
+        <input type="submit" value="Submit">
+    </form>
+    <p> {{ result|safe }} </p>
 </blockquote>
 </body>
 </html>
