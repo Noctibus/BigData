@@ -29,7 +29,7 @@ def get_result_from_lettre():
     projection = {'trackName': 1, 'artistName': 1, '_id': 0}
     result = collection.find(query, projection)
     data = [r for r in result]
-    return render_template('index.html', result=data)
+    return render_result(result)
 
 
 @app.route('/get-result-from-genre', methods=['GET'])
@@ -39,7 +39,6 @@ def get_result_from_genre():
     projection = {'genre': 1, 'artistName': 1, '_id': 0}
     result = collection.find(query, projection)
     data = [r for r in result]
-    return render_template('index.html', result=data)
     return render_result(result)
 
 
