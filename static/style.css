@@ -10,5 +10,45 @@ select {
 body {
     font-family: Arial, Helvetica, sans-serif;
     font-size: 1.2rem;
-    background-color: #f5f5f5;
+    /* background-image: radial-gradient(
+      farthest-corner at 40px 40px,
+      rgba(146, 197, 255, 0.671) 0%,
+      rgba(60, 151, 255, 0.76) 100%
+    ); */
+    /* apply image from url as background. Make it fit screen width and not move when scrolling down the screen */
+    background-image: url("https://bretzoule.eu/assets/icey-background.693d2065.png");
+    background-size: cover;
+    background-attachment: fixed;
+}
+
+.button {
+  background-color: #D8E8FE;
+  border-radius: 8px;
+  border-width: 0;
+  color: #2A128A;
+  cursor: pointer;
+  display: inline-block;
+  font-family: "Haas Grot Text R Web", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 20px;
+  list-style: none;
+  margin: 0;
+  padding: 10px 12px;
+  text-align: center;
+  transition: all 200ms;
+  vertical-align: baseline;
+  white-space: nowrap;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+}
+
+.selection-area {
+    text-align: center;
+    color: #fff;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    border-radius: 10px;
+    background-color: #1e2737ad;
 }

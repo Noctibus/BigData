@@ -15,52 +15,54 @@
     <body>
         <!-- make h1 title go to home page if clicked and remove underline-->
         <h1><a href="/" style="text-decoration: none; color: black;">Welcome to Spoutify !</a></h1>
-        <!-- Afficher les documents dont trackName commence par la lettre sélectionnée -->
-        <form action="/get-result-from-lettre" method="get">
-            <label for="letters">Select the first letter:</label>
-            <select name="lettre" id="lettre">
-                {% for letter in 'ABCDEFGHIJKLMNOPQRSTUVWXYZ' %}
-                <option value="{{ letter }}">{{ letter }}</option>
-                {% endfor %}
-            </select>
-            <input type="submit" value="Submit">
-        </form>
+
+        <div class="selection-area">
+            <!-- Afficher les documents dont trackName commence par la lettre sélectionnée -->
+            <form action="/get-result-from-lettre" method="get">
+                <label for="letters">Select the first letter:</label>
+                <select name="lettre" class="button">
+                    {% for letter in 'ABCDEFGHIJKLMNOPQRSTUVWXYZ' %}
+                    <option value="{{ letter }}">{{ letter }}</option>
+                    {% endfor %}
+                </select>
+                <input class="button" type="submit" value="Submit">
+            </form>
 
 
-        <!-- Recherche par genre -->
-        <form action="/get-result-from-genre?" method="get">
-            <label for="type">Choose a genre:</label>  
-                <input name="genre" value="{{ genre }}">{{genre}}</input>
-            <input type="submit" value="Submit">
-        </form>
+            <!-- Recherche par genre -->
+            <form action="/get-result-from-genre?" method="get">
+                <label for="type">Choose a genre:</label>  
+                    <input class="button" name="genre" value="{{ genre }}">{{genre}}</input>
+                <input class="button" type="submit" value="Submit">
+            </form>
 
 
-        <!-- Tri par tag ascendant ou descendant -->
-        <form action="/get-result-sorted?sorting=?order=" method="get">
-            <label for="sorting"> Sort by: </label>
-            <select name="sorting" id="sorting-form">
-                <option value="tempo">tempo</option>
-                <option value="msPlayed">ms played</option>
-                <option value="danceability">danceability</option>
-                <option value="energy">energy</option>
-                <option value="loudness">loudness</option>
-                <option value="mode">mode</option>
-                <option value="speechness">speechness</option>
-                <option value="acousticness">acousticness</option>
-                <option value="instrumentalness">instrumentalness</option>
-                <option value="liveness">liveness</option>
-                <option value="valence">valence</option>
-                <option value="duration_ms">duration</option>
-                <option value="time_signature">time signature</option>
-                <option value="key">key</option>
-            </select>
-            <select name="order" id="sorting-order">
-                <option value="Ascending">Ascending</option>
-                <option value="Descending">Descending</option>
-            </select>
-            <input type="submit" value="Submit">
-        </form>
-
+            <!-- Tri par tag ascendant ou descendant -->
+            <form action="/get-result-sorted?sorting=?order=" method="get">
+                <label for="sorting"> Sort by: </label>
+                <select class="button" name="sorting" id="sorting-form">
+                    <option value="tempo">tempo</option>
+                    <option value="msPlayed">ms played</option>
+                    <option value="danceability">danceability</option>
+                    <option value="energy">energy</option>
+                    <option value="loudness">loudness</option>
+                    <option value="mode">mode</option>
+                    <option value="speechness">speechness</option>
+                    <option value="acousticness">acousticness</option>
+                    <option value="instrumentalness">instrumentalness</option>
+                    <option value="liveness">liveness</option>
+                    <option value="valence">valence</option>
+                    <option value="duration_ms">duration</option>
+                    <option value="time_signature">time signature</option>
+                    <option value="key">key</option>
+                </select>
+                <select class="button" name="order" id="sorting-order">
+                    <option value="Ascending">Ascending</option>
+                    <option value="Descending">Descending</option>
+                </select>
+                <input class="button" type="submit" value="Submit">
+            </form>
+        </div>
 
         <!-- Affichage du résultat -->
         <p> {{ result|safe }} </p>
