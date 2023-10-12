@@ -8,9 +8,9 @@ app = Flask(__name__)
 
 def connect_mongo_db():
     print("Connecting to MongoDB...................")
-    client = MongoClient('mongodb://mon_user:mon_mot_de_passe@localhost:27017/')
-    db = client['spotify']
-    collection = db['spotifyCollection']
+    client = MongoClient('mongodb://localhost:27017/')
+    db = client['Spotify']
+    collection = db['Spotify']
     return collection
 
 
@@ -37,7 +37,13 @@ def get_result_from_genre():
     query = {'genre': {'$regex': genre, '$options': 'i'}}
     projection = {'genre': 1, 'artistName': 1, '_id': 0}
     result = collection.find(query, projection)
-    return render_result(result)
+    count = collection.count_documents(query)
+    if count == 0:
+        errormessage="Aucun résultat trouvé pour le genre spécifié."
+        return render_template('index.html', errormessage=errormessage)
+    else :
+        errormessage=None
+        return render_result(result)
 
 
 @app.route('/get-result-sorted', methods=['GET'])
