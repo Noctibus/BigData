@@ -32,9 +32,11 @@
             <!-- Recherche par genre -->
             <form action="/get-result-from-genre?" method="get">
                 <label for="type">Choose a genre:</label>  
-                    <input class="button" name="genre" value="{{ genre }}">{{genre}}</input>
-                <input class="button" type="submit" value="Submit">
-            </form>
+                    <input name="genre" value="{{ genre }}">{{genre}}</input>
+                <input type="submit" value="Submit">
+            </form> 
+            <span id="errormessage" style="color: red">{{errormessage}}</span>
+
 
 
             <!-- Tri par tag ascendant ou descendant -->
