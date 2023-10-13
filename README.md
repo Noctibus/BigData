@@ -2,7 +2,7 @@
 
 ## Description
 
-A simple website to search for a song and display statistics.
+A simple website to search for a Spotify song and display Spotify statistics.
 ## Getting Started
 
 ### Dependencies
