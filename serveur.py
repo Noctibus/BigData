@@ -25,6 +25,7 @@ def get_result_from_lettre():
     return render_result(result)
 
 
+
 @app.route('/get-result-from-genre', methods=['GET'])
 def get_result_from_genre():
     genre = request.args.get('genre')
@@ -53,11 +54,43 @@ def get_result_sorted():
     return render_result(result)
 
 
-
+@app.route('/analytics', methods=['GET'])
+def analytics():
+    genre_danceability = {}
+    genre_count = {}
+    genres_list = []
+    for document in collection.find():
+        if 'genre' in document and 'danceability' in document:
+            genre = document.get('genre')
+            danceability = document.get('danceability')
+            if genre in genre_count:
+                genre_count[genre] += 1
+                genre_danceability[genre] += danceability
+            else:
+                genre_count[genre] = 1
+                genre_danceability[genre] = danceability
+    
+    for document in collection.find():
+        if 'danceability' in document :
+            danceability=document.get('danceability')
+        if 'genre' in document:
+            genre=document.get('genre')
+            if genre not in genres_list:
+                genres_list.append(genre)
+            if genre in genre_count:
+                genre_count[genre] += 1
+            else:
+                genre_count[genre] = 1
+                
+    average_danceability_by_genre = {}
+    for genre in genre_count:
+        average_danceability_by_genre[genre] = genre_danceability[genre] / genre_count[genre]
+                            
+    return render_template('analytics.html',**locals())
+ 
 @app.route('/', methods=['GET'])
-def index():
+def home():
     return render_template('index.html')
-
 
 if __name__ == '__main__':
     collection = connect_mongo_db()
