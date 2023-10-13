@@ -5,17 +5,32 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <title>Analytics</title>
+    <link rel="stylesheet" type="text/css" href="../static/style.css">
 </head>
 <body>
+    <div class="top-container">
+        <!-- make h1 title go to home page if clicked and remove underline-->
+        <h1 style="text-align: center;"><a href="/" style="text-decoration: none; color: #2A128A;">Welcome to Spoutify !</a></h1>
+
+        <div class="selection-area">
+            <a href="/" class="button" onclick="">Search page</a>
+            <a href="/analytics" class="button" >Analytics</a>
+        </div>
+
+    </div>
     <script>
         var genre_number = {{genre_count|safe}};
         var genre_danse = {{average_danceability_by_genre|safe}}
     </script>
     <div>
-        <h1>Nombre de musiques par genre</h1>
-        <canvas id="myChart1"></canvas>
-        <h1>Dansabilité moyenne par genre</h1>
-        <canvas id="myChart2"></canvas>
+        <div class=charts>
+            <h1 style="color: #2A128A;">Nombre de musiques par genre</h1>
+            <canvas id="myChart1" style="width: 200vw; height: 93vh; overflow-x: scroll; overflow: hidden;"></canvas>
+        </div>
+        <div class="charts">
+            <h1 style="color: #2A128A;">Dansabilité moyenne par genre</h1>
+            <canvas id="myChart2" style="width: 200vw; height: 93vh; overflow-x: scroll; overflow: hidden;"></canvas>
+        </div>
         <script src="../static/chart.js"></script>
     </div>
 </body>

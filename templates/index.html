@@ -13,8 +13,17 @@
         </script>
     </head>
     <body onload="show_page(0)">
-        <!-- make h1 title go to home page if clicked and remove underline-->
-        <h1 style="text-align: center;"><a href="/" style="text-decoration: none; color: #2A128A;">Welcome to Spoutify !</a></h1>
+        <div class="top-container">
+            <!-- make h1 title go to home page if clicked and remove underline-->
+            <h1 style="text-align: center;"><a href="/" style="text-decoration: none; color: #2A128A;">Welcome to Spoutify !</a></h1>
+
+            <div class="selection-area">
+                <a href="/" class="button" onclick="">Search page</a>
+                <a href="/analytics" class="button" >Analytics</a>
+            </div>
+
+        </div>
+
 
         <div class="selection-area">
             <!-- Afficher les documents dont trackName commence par la lettre sélectionnée -->
@@ -65,11 +74,13 @@
             </form>
         </div>
 
+
         <!-- Affichage du résultat -->
+        <p> {{ result|safe }} </p>
         <div>
             <button class="button" onclick="show_page(page - 25)">Prev</button>
-            <button class="button" onclick="show_page(page + 25)">Next</button> </div>
-        </body>
-        <p> {{ result|safe }} </p>
+            <button class="button" onclick="show_page(page + 25)">Next</button>
+        </div>
+    </body>
 
 </html>

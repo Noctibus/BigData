@@ -4,8 +4,9 @@ var danse =  Object.values(genre_danse);
 console.log(genre_danse);
 var ctx1 = document.getElementById('myChart1').getContext('2d');
 var ctx2 = document.getElementById('myChart2').getContext('2d');
+var color = 'rgba(42,18,138, 1)';
 
-    
+
 var myChart = new Chart(ctx1, {
     type: 'bar',
     data: {
@@ -13,15 +14,15 @@ var myChart = new Chart(ctx1, {
         datasets: [{
             label: 'Nombre de musiques par genre',
             data: counts,
-            backgroundColor: 'rgba(75, 192, 192, 0.2)',
-            borderColor: 'rgba(75, 192, 192, 1)',
+            backgroundColor: color,
+            borderColor: color,
             borderWidth: 1
         }]
     },
     options: {
         scales: {
             y: {
-                beginAtZero: true
+                beginAtZero: true,
             }
         }
     }
@@ -34,8 +35,8 @@ var myChart = new Chart(ctx2, {
         datasets: [{
             label: 'Nombre de musiques par genre',
             data: danse,
-            backgroundColor: 'rgba(75, 192, 192, 0.2)',
-            borderColor: 'rgba(75, 192, 192, 1)',
+            backgroundColor: color,
+            borderColor: color,
             borderWidth: 1
         }]
     },
