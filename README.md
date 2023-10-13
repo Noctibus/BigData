@@ -17,7 +17,7 @@ A simple website to search for a song and display statistics.
 
 ### Executing program
 
-* Run de file serveur.py
+* Run the file serveur.py
 ```
 python serveur.py
 ```
