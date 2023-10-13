@@ -27,9 +27,9 @@ python serveur.py
 
 Contributors names and contact info
 
-DEBET Stanislas, debetstani@cy-tech.fr
-GOBBO Fanny, gobbofanny@cy-tech.fr
-MADRELLE Alexis, madrelleal@cy-tech.fr
+* DEBET Stanislas, debetstani@cy-tech.fr
+* GOBBO Fanny, gobbofanny@cy-tech.fr
+* MADRELLE Alexis, madrelleal@cy-tech.fr
 
 ## Version History
 
