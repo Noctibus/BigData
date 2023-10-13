@@ -42,6 +42,7 @@ white-space: nowrap;
 user-select: none;
 -webkit-user-select: none;
 touch-action: manipulation;
+text-decoration: none;
 }
 
 .selection-area {
@@ -49,7 +50,18 @@ touch-action: manipulation;
   color: #fff;
   border-radius: 10px;
   background-color: #1e2737ad;
-  width: 500px;
+  width: fit-content;
   margin: auto;
+  margin-top: 10px;
+  margin-bottom: 10px;
   padding: 10px;
+}
+
+.charts {
+  text-align: center;
+  border-radius: 10px;
+  background-color: #a0b6e2e7;
+  padding: 10px;
+  margin-top: 10px;
+  width: auto;
 }
