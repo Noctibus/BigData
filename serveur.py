@@ -25,6 +25,7 @@ def get_result_from_lettre():
     return render_result(result)
 
 
+
 @app.route('/get-result-from-genre', methods=['GET'])
 def get_result_from_genre():
     genre = request.args.get('genre')
