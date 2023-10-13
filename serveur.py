@@ -2,16 +2,10 @@ from flask import Flask, render_template, request, redirect, url_for, flash, ses
 import pymongo
 from pymongo import MongoClient
 import pandas as pd
+from connect_mongo import connect_mongo_db
 
 
 app = Flask(__name__)
-
-def connect_mongo_db():
-    print("Connecting to MongoDB...................")
-    client = MongoClient('mongodb://localhost:27017/')
-    db = client['Spotify']
-    collection = db['Spotify']
-    return collection
 
 
 def render_result(result):
