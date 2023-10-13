@@ -1,4 +1,4 @@
-const itemsPerPage = 25;
+const itemsPerPage = 15;
 let page = 0;
 const table = document.getElementsByClassName("dataframe");
 
@@ -7,7 +7,7 @@ function show_page (index) {
     if (index < 0) {
         show_page(0);
     } else if (index > rows.length){
-        show_page(index - 25);
+        show_page(index - itemsPerPage);
     } else {
         page = index;
     }
@@ -17,7 +17,7 @@ function show_page (index) {
           rows[i].style.display = 'table-row';
         }
         else {
-          rows[i].style.display = 'none';    
+          rows[i].style.display = 'none';
         }
     }
 }

@@ -88,9 +88,14 @@ def analytics():
                             
     return render_template('analytics.html',**locals())
  
+@app.route('/search', methods=['GET'])
+def search():
+    return render_template('index.html')
+
+
 @app.route('/', methods=['GET'])
 def home():
-    return render_template('index.html')
+    return redirect(url_for('search'))
 
 if __name__ == '__main__':
     collection = connect_mongo_db()
