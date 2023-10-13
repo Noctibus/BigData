@@ -8,11 +8,11 @@ select {
 }
 
 body {
-    font-family: Arial, Helvetica, sans-serif;
-    font-size: 1.2rem;
-    background-image: url("https://bretzoule.eu/assets/icey-background.693d2065.png");
-    background-size: cover;
-    background-attachment: fixed;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 1.2rem;
+  background-image: url("https://bretzoule.eu/assets/icey-background.693d2065.png");
+  background-size: cover;
+  background-attachment: fixed;
   font-family: Arial, Helvetica, sans-serif;
   font-size: 1.2rem;
   background-image: url("https://bretzoule.eu/assets/icey-background.693d2065.png");
@@ -74,4 +74,18 @@ text-decoration: none;
   padding: 10px;
   margin-top: 10px;
   width: fit-content;
+}
+
+.footer {
+  /* text size to 10 */
+  font-size: 14px;
+  text-align: center;
+  color: #fff;
+  border-radius: 10px;
+  background-color: #1e2737ad;
+  width: fit-content;
+  margin-bottom: 0;
+  padding: 10px;
+  bottom: 0;
+  position: absolute;
 }
