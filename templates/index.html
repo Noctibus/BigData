@@ -7,12 +7,15 @@
         <link rel="stylesheet" type="text/css" href="../static/style.css">
         <!-- Google Fonts Link For Icons -->
         <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
-
         <script type="text/javascript">
             var result = {{ result|safe }};
         </script>
     </head>
     <body>
+        <button action="./analytics" type="submit">
+            <i class="py-2 px-6 m-2 text-indigo-100 transition-colors duration-150 bg-indigo-700 rounded-lg"
+              aria-hidden="true">Génerer l'étude</i>
+          </button>
         <!-- make h1 title go to home page if clicked and remove underline-->
         <h1 style="text-align: center;"><a href="/" style="text-decoration: none; color: #2A128A;">Welcome to Spoutify !</a></h1>
 
@@ -36,7 +39,6 @@
                 <input class="button" type="submit" value="Submit">
             </form> 
             <span id="errormessage" style="color: red">{{errormessage}}</span>
-
 
 
             <!-- Tri par tag ascendant ou descendant -->

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <title>Analytics</title>
+</head>
+<body>
+    <script>
+        var genre_number = {{genre_count|safe}};
+        var genre_danse = {{average_danceability_by_genre|safe}}
+    </script>
+    <div>
+        <h1>Nombre de musiques par genre</h1>
+        <canvas id="myChart1"></canvas>
+        <h1>Dansabilité moyenne par genre</h1>
+        <canvas id="myChart2"></canvas>
+        <script src="../static/chart.js"></script>
+    </div>
+</body>
+</html>
