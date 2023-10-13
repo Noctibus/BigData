@@ -60,8 +60,18 @@ text-decoration: none;
 .charts {
   text-align: center;
   border-radius: 10px;
-  background-color: #a0b6e2e7;
+  background-color: #d8e8feb6;
   padding: 10px;
   margin-top: 10px;
   width: auto;
+}
+
+.tab {
+  margin: auto;
+  text-align: center;
+  border-radius: 10px;
+  background-color: #d8e8feb6;
+  padding: 10px;
+  margin-top: 10px;
+  width: fit-content;
 }

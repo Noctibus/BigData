@@ -34,7 +34,7 @@
                     <option value="{{ letter }}">{{ letter }}</option>
                     {% endfor %}
                 </select>
-                <input class="button" type="submit" value="Submit">
+                <input class="button" onclick="show_page(0)" type="submit" value="Submit">
             </form>
 
 
@@ -42,7 +42,7 @@
             <form action="/get-result-from-genre?" method="get">
                 <label for="type">Choose a genre:</label>  
                     <input class="button" name="genre" value="{{ genre }}">{{genre}}</input>
-                <input class="button" type="submit" value="Submit">
+                <input class="button" onclick="show_page(0)" type="submit" value="Submit">
             </form> 
             <span id="errormessage" style="color: red">{{errormessage}}</span>
 
@@ -70,16 +70,18 @@
                     <option value="Ascending">Ascending</option>
                     <option value="Descending">Descending</option>
                 </select>
-                <input class="button" type="submit" value="Submit">
+                <input class="button" onclick="show_page(0)" type="submit" value="Submit">
             </form>
         </div>
 
 
         <!-- Affichage du résultat -->
-        <p> {{ result|safe }} </p>
-        <div>
-            <button class="button" onclick="show_page(page - 25)">Prev</button>
-            <button class="button" onclick="show_page(page + 25)">Next</button>
+        <div class="tab">
+            <p> {{ result|safe }} </p>
+            <div>
+                <button class="button" onclick="show_page(page - 15)">Prev</button>
+                <button class="button" onclick="show_page(page + 15)">Next</button>
+            </div>
         </div>
     </body>
 
