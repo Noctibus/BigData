@@ -7,12 +7,11 @@
         <link rel="stylesheet" type="text/css" href="../static/style.css">
         <!-- Google Fonts Link For Icons -->
         <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
-
-        <script type="text/javascript">
+        <script type="text/javascript" src="../static/table.js">
             var result = {{ result|safe }};
         </script>
     </head>
-    <body>
+    <body onload="show_page(0)">
         <!-- make h1 title go to home page if clicked and remove underline-->
         <h1 style="text-align: center;"><a href="/" style="text-decoration: none; color: #2A128A;">Welcome to Spoutify !</a></h1>
 
@@ -67,6 +66,10 @@
         </div>
 
         <!-- Affichage du résultat -->
+        <div>
+            <button onclick="show_page(page - 25)">Prev</button>
+            <button onclick="show_page(page + 25)">Next</button> </div>
+        </body>
         <p> {{ result|safe }} </p>
-    </body>
+
 </html>
