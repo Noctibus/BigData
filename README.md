@@ -1,6 +1,4 @@
-# Project Title
-
-Spoutify
+# Spoutify
 
 ## Description
 
@@ -29,7 +27,7 @@ python serveur.py
 
 Contributors names and contact info
 
-DEBET Stanislas,
+DEBET Stanislas, debetstani@cy-tech.fr
 GOBBO Fanny, gobbofanny@cy-tech.fr
 MADRELLE Alexis, madrelleal@cy-tech.fr
 
